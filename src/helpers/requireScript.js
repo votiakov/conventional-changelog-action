@@ -10,6 +10,10 @@ const fs = require('fs')
 module.exports = (file) => {
   const fileLocation = path.resolve(process.cwd(), file)
 
+  console.log(process.cwd())
+    console.log(file)
+      console.log(fileLocation)
+  console.log(fs.existsSync(fileLocation))
   // Double check the script exists before loading it
   if (fs.existsSync(fileLocation)) {
     core.info(`Loading "${fileLocation}" script`)
