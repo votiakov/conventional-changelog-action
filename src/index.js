@@ -85,12 +85,17 @@ async function run() {
     }
 
     const config = conventionalConfigFile && requireScript(conventionalConfigFile)
+    
+    console.log(preset)
+    console.log(config)
 
     conventionalRecommendedBump({ preset, tagPrefix, config, skipUnstable: !prerelease }, async (error, recommendation) => {
       if (error) {
         core.setFailed(error.message)
         return
       }
+      
+      console.log(recommendation)
 
       core.info(`Recommended release type: ${recommendation.releaseType}`)
 
@@ -113,6 +118,8 @@ async function run() {
           versionPath,
           recommendation.releaseType,
         )
+        
+        console.log(versioning)
 
         newVersion = versioning.newVersion
         oldVersion = versioning.oldVersion
