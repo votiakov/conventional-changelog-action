@@ -87,6 +87,8 @@ async function run() {
     const config = conventionalConfigFile && requireScript(conventionalConfigFile)
     
     console.log(preset)
+    console.log(conventionalConfigFile)
+    console.log(requireScript(conventionalConfigFile))
     console.log(config)
 
     conventionalRecommendedBump({ preset, tagPrefix, config, skipUnstable: !prerelease }, async (error, recommendation) => {
